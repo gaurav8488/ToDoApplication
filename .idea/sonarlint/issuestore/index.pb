@@ -41,3 +41,13 @@ Napp/src/main/java/com/nagarro/gaurav/todoapplication/domain/model/TodoModel.kt
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+„
+Tapp/src/main/java/com/nagarro/gaurav/todoapplication/util/NoConnectivityExceptoin.kt,d\3\d3a71be9b241a2aa3333e9b458b528f3467c5acb
+„
+Tapp/src/main/java/com/nagarro/gaurav/todoapplication/domain/usecase/UseCaseResult.kt,6\d\6dbc148a30bed5ad6ddfae075913e4b6e87a3529
+‰
+Yapp/src/main/java/com/nagarro/gaurav/todoapplication/domain/repository/IDataRepository.kt,2\b\2bee5a94b37993085e53c955d2af6161ad4a6db9
+†
+Vapp/src/androidTest/java/com/nagarro/gaurav/todoapplication/ExampleInstrumentedTest.kt,c\a\caa1f9ff2fcd4495a0dbbcf2f8068a0f81de4042
+w
+Gapp/src/test/java/com/nagarro/gaurav/todoapplication/ExampleUnitTest.kt,5\7\575cbda70045f0859606b64b6b761798de46bab7
