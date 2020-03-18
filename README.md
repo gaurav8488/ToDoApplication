@@ -12,5 +12,5 @@
 ### Features ###
  * Architecture: Clean Architecture with MVVM <br>
  * Jetpack Components: LiveData, ViewModel, ConstaintLayout, DataBinding<br>
- * Networking: Retrofit<br>
+ * Networking: Coroutines, Retrofit<br>
  * Language: Kotlin<br>
