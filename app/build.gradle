@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    dataBinding {
+        enabled = true
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    compileSdkVersion rootProject.compile_sdk_version
+    defaultConfig {
+        applicationId "com.nagarro.gaurav.todoapplication"
+        minSdkVersion rootProject.min_sdk_version
+        targetSdkVersion rootProject.target_sdk_version
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            buildConfigField "String", "API_URL", '"https://jsonplaceholder.typicode.com"'
+            debuggable true
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.core:core-ktx:$androidx_test_core_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "androidx.cardview:cardview:$card_view_version"
+    implementation "androidx.fragment:fragment-ktx:$fragment_kotlin_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rxjava_version"
+    implementation "com.squareup.retrofit2:converter-gson:$gson_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
+
+    //Koin
+    implementation "org.koin:koin-core:$koin_version"
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
+
+    //architecture component
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+
+    //coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutnies_core_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutnies_android_version"
+
+    //shimmer layout
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
+
+    // binding collection adapter
+    implementation "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:$binding_collection_version"
+    implementation "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:$binding_collection_version"
+
+    //testing
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "com.android.support.test:runner:$support_testing_version"
+}

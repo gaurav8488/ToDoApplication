@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ToDoApplication</string>
+    <string name="msg_give_it_another_try">Give it another try</string>
+    <string name="msg_something_went_wrong">Something went wrong</string>
+    <string name="action_reload">Reload</string>
+    <string name="no_internet">No Internet Connection</string>
+</resources>

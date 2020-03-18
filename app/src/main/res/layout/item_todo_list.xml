@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="todoItem"
+            type="com.nagarro.gaurav.todoapplication.domain.model.TodoModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="@dimen/_5dp"
+        app:cardUseCompatPadding="true"
+        app:elevation="@dimen/_5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_12dp">
+
+            <TextView
+                android:id="@+id/tv_todo_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text='@{String.valueOf(todoItem.id)}'
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/text_16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="1" />
+
+            <TextView
+                android:id="@+id/tv_todo_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16dp"
+                android:layout_marginEnd="@dimen/_16dp"
+                android:text='@{todoItem.title??""}'
+                android:textSize="@dimen/text_16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/iv_todo_status"
+                app:layout_constraintStart_toEndOf="@id/tv_todo_id"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Sample todo title" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_todo_status"
+                android:layout_width="@dimen/_20dp"
+                android:layout_height="@dimen/_20dp"
+                android:src="@{todoItem.completed==true?@drawable/ic_status_completed:@drawable/ic_status_not_completed}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_todo_title"
+                app:layout_constraintTop_toTopOf="@id/tv_todo_title"
+                tools:src="@drawable/ic_status_not_completed" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
