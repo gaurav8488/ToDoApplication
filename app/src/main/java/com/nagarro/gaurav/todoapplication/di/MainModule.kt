@@ -40,9 +40,9 @@ fun provideOkHttpClient(
     androidContext: Context
 ): OkHttpClient {
     return OkHttpClient().newBuilder()
-        .connectTimeout(5, TimeUnit.MINUTES)
-        .writeTimeout(2, TimeUnit.MINUTES)
-        .readTimeout(2, TimeUnit.MINUTES)
+        .connectTimeout(1, TimeUnit.MINUTES)
+        .writeTimeout(1, TimeUnit.MINUTES)
+        .readTimeout(1, TimeUnit.MINUTES)
         .addInterceptor(authInterceptor)
         .addInterceptor(NetworkConnectionInterceptor(androidContext))
         .build()
