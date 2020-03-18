@@ -2,7 +2,7 @@
 
 ### Summary ###
 
-* Displays a list of TODO's with their statu using Kotlin, DataBinding, MVVM and Koin
+* Displays a list of TODO's with their status using Kotlin, DataBinding, MVVM and Koin
 
 ### Set up ###
   *  Download the source code
@@ -10,7 +10,7 @@
 
 
 ### Features ###
- * Architecture: MVVM <br>
+ * Architecture: Clean Architecture with MVVM <br>
  * Jetpack Components: LiveData, ViewModel, ConstaintLayout, DataBinding<br>
  * Networking: Retrofit<br>
  * Language: Kotlin<br>
