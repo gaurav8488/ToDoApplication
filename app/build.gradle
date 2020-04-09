@@ -38,6 +38,7 @@ dependencies {
     implementation "androidx.core:core-ktx:$androidx_test_core_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.cardview:cardview:$card_view_version"
+    implementation "androidx.recyclerview:recyclerview:$recycler_version"
     implementation "androidx.fragment:fragment-ktx:$fragment_kotlin_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
 
@@ -62,10 +63,6 @@ dependencies {
 
     //shimmer layout
     implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
-
-    // binding collection adapter
-    implementation "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:$binding_collection_version"
-    implementation "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:$binding_collection_version"
 
     //testing
     testImplementation "junit:junit:$junit_version"

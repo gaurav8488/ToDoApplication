@@ -2,31 +2,25 @@ package com.nagarro.gaurav.todoapplication.presentation.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.nagarro.gaurav.todoapplication.R
-import com.nagarro.gaurav.todoapplication.BR
+import androidx.lifecycle.viewModelScope
+import com.nagarro.gaurav.todoapplication.domain.model.TodoModel
 import com.nagarro.gaurav.todoapplication.domain.repository.IDataRepository
 import com.nagarro.gaurav.todoapplication.domain.usecase.UseCaseResult
-import com.nagarro.gaurav.todoapplication.domain.model.TodoModel
-import kotlinx.coroutines.*
-import me.tatarka.bindingcollectionadapter2.ItemBinding
-import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.launch
 
-class TodoListViewModel(private val dataRepository: IDataRepository) : ViewModel(), CoroutineScope {
-    private val job = Job()
+class TodoListViewModel(private val dataRepository: IDataRepository) : ViewModel() {
     val todoItems = MutableLiveData<List<TodoModel>>()
     val isShimmerGone = MutableLiveData<Boolean>(false)
     val isInternetGone = MutableLiveData<Boolean>()
-    val todoItemsBinding: ItemBinding<TodoModel> = ItemBinding.of<TodoModel>(
-        BR.todoItem, R.layout.item_todo_list
-    )
 
-    override val coroutineContext: CoroutineContext = Dispatchers.Main + job
-
+    /**
+     * Function to get items from web API
+     */
     fun getTodoList() {
         isShimmerGone.value = false
         isInternetGone.value = false
-        CoroutineScope(Dispatchers.Main).launch {
-            val result = withContext(Dispatchers.IO) { dataRepository.getTodoList() }
+        viewModelScope.launch {
+            val result = dataRepository.getTodoList()
             isShimmerGone.value = true
             when (result) {
                 is UseCaseResult.Success -> {
@@ -37,10 +31,5 @@ class TodoListViewModel(private val dataRepository: IDataRepository) : ViewModel
                     isInternetGone.value = true
             }
         }
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        job.cancel()
     }
 }

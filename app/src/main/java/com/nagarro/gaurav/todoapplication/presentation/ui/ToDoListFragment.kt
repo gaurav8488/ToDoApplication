@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.nagarro.gaurav.todoapplication.R
 import com.nagarro.gaurav.todoapplication.databinding.FragmentTodoListBinding
+import com.nagarro.gaurav.todoapplication.presentation.ui.adapter.TodoListAdapter
 import com.nagarro.gaurav.todoapplication.presentation.viewmodel.TodoListViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -33,6 +34,12 @@ class TodoListFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        todoListModel.todoItems.observe(this, Observer {
+            it?.let {
+                binding.recyclerView.adapter = TodoListAdapter(it)
+            }
+        })
+
         todoListModel.isShimmerGone.observe(this, Observer { isShimmerGone ->
             if(isShimmerGone) stopShimmer() else startShimmer()
         })
